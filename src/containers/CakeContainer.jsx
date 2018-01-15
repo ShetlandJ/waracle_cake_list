@@ -2,10 +2,10 @@ import React from 'react';
 
 class CakeContainer extends React.Component {
 
-  constructor(super){
+  constructor(props){
     super(props);
     this.state = {
-      cakes_data: [];
+      cakes_data: []
     }
   }
 
@@ -17,18 +17,16 @@ class CakeContainer extends React.Component {
       if (request.status === 200) {
         const jsonString = request.responseText;
         const data = JSON.parse(jsonString);
-        this.setState({ countries: data }, () => {
-          this.buildCountryArray(this.state.randomNumber)
-        });
-      }
-    });
+        this.setState({ cakes_data: data })
+        };
+      });
     request.send();
   }
 
 
   render() {
     return(
-      <div>Cake list goes here</div>
+      <div>{this.state.cakes_data.children}</div>
     )
   }
 }
