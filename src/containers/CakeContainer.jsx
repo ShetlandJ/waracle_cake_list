@@ -1,4 +1,5 @@
 import React from 'react';
+import Add from "./Add";
 
 class CakeContainer extends React.Component {
 
@@ -34,7 +35,10 @@ class CakeContainer extends React.Component {
     });
 
     return(
+      <div id="main">
       <div id="cake-list">{cakes}</div>
+      <Add />
+    </div>
     )
   }
 }
