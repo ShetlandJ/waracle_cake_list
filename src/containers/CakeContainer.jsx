@@ -4,6 +4,9 @@ class CakeContainer extends React.Component {
 
   constructor(super){
     super(props);
+    this.state = {
+      cakes_data: [];
+    }
   }
 
   render() {
