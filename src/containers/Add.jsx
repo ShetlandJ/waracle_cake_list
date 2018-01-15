@@ -3,7 +3,9 @@ import React from 'react';
 class Add extends React.Component {
   render() {
     return(
-      <button>I'm an add button!</button>
+      <div id="add-new-cake-container">
+      <button id="add-btn">Add a new cake</button>
+    </div>
     )
   }
 }
