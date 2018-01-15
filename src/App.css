@@ -1,1 +1,49 @@
+h2 {
+  margin-left: 15px;
+}
 
+img {
+  width: 60%;
+  height: 60%;
+}
+
+#cake-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10vw;
+}
+
+#add-new-cake-container {
+  height: 50px;
+}
+
+#add-btn {
+  content: "Add new cake";
+  border-radius: 10%;
+  right: 5%;
+  top: 5%;
+  font-size: 14px;
+  position: fixed;
+}
+
+@media only screen and (max-width: 768px) {
+    #add-btn {
+        bottom: 5%;
+        top: auto;
+    }
+    img {
+      width: 40%;
+      height: 40%;
+    }
+}
+
+.cake {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.cake-details {
+  display: flex;
+  flex-direction: column;
+}
