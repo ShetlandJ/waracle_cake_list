@@ -18,22 +18,25 @@ class CakeContainer extends React.Component {
         const jsonString = request.responseText;
         const data = JSON.parse(jsonString);
         this.setState({ cakes_data: data })
-        };
-      });
+      };
+    });
     request.send();
   }
 
   render() {
 
     const cakes = this.state.cakes_data.map((cake, index) => {
-      return <div className="flag"><img alt="" src={cake.name} value={cake.comment} key={index}></img>
-    </div>
-  });
+      return <div className="cake">
+        <img src={cake.imageUrl}></img>
+        <h2>{cake.name}</h2>
+        <h2>{cake.comment}</h2>
+      </div>
+    });
 
 
 
     return(
-      <div>{this.state.cakes_data.children}</div>
+      <div id="cake-list">{cakes}</div>
     )
   }
 }
