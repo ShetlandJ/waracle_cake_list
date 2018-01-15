@@ -33,8 +33,6 @@ class CakeContainer extends React.Component {
       </div>
     });
 
-
-
     return(
       <div id="cake-list">{cakes}</div>
     )
