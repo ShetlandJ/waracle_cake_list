@@ -19,6 +19,15 @@ class CakeContainer extends React.Component {
         const jsonString = request.responseText;
         const data = JSON.parse(jsonString);
         this.setState({ cakes_data: data })
+        };
+      });
+    request.send();
+  }
+
+
+  render() {
+    return(
+      <div>{this.state.cakes_data.children}</div>
       };
     });
     request.send();
