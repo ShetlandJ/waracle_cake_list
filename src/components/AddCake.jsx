@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import request from 'request';
 
 
@@ -17,7 +17,7 @@ class AddCake extends React.Component {
   }
 
   handleSubmit(event) {
-  if (this.state.name.length !== null && this.state.comment.length !== null && this.state.imageUrl.length !== null) {
+  if (this.state.name.length < 0 && this.state.comment.length < 0 && this.state.imageUrl.length < 0) {
       var options = {
           method: 'post',
           body: this.state,
@@ -30,7 +30,7 @@ class AddCake extends React.Component {
               return;
           }
 
-          BrowserRouter.push('/');
+          <Redirect to="/"/>
       });
   } else {
      alert('Please fill in all the form elements');
@@ -44,9 +44,9 @@ class AddCake extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        Name: <input name="name" type="text" placeholder="Cake name..."/>
-        Comment: <textarea name="Comment..."/>
-        Cake pic url URL: <input type="text" placeholder="Image URL"/>
+        Name: <input name="name" value={this.state.name} type="text" placeholder="Cake name..."/>
+        Comment: <textarea name="Comment..." value={this.state.comment} />
+        Cake pic url URL: <input type="text" value={this.state.imageUrl} placeholder="Image URL"/>
 
         <div className="radio">
           <label><input type="radio" value="yum1" name="yumRating" />1</label>
