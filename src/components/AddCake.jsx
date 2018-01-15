@@ -1,4 +1,7 @@
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import request from 'request';
+
 
 class AddCake extends React.Component {
   constructor(props) {
@@ -9,7 +12,32 @@ class AddCake extends React.Component {
       imageUrl: '',
       yumFactor: 1
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+  if (this.state.name.length !== null && this.state.comment.length !== null && this.state.imageUrl.length !== null) {
+      var options = {
+          method: 'post',
+          body: this.state,
+          json: true,
+          url: "http://ec2-52-209-201-89.eu-west-1.compute.amazonaws.com:5000/api/cakes"
+      }
+      request(options, function(err, response, body) {
+          if (err) {
+              alert('Your cake could not be added for the following reason:' + err);
+              return;
+          }
+
+          BrowserRouter.push('/');
+      });
+  } else {
+     alert('Please fill in all the form elements');
+  }
+  event.preventDefault();
+}
+
 
 
   render() {
