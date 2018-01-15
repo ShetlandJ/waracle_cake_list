@@ -26,19 +26,25 @@ class CakeContainer extends React.Component {
 
   render() {
 
+
     const cakes = this.state.cakes_data.map((cake, index) => {
       return <div className="cake">
-        <img src={cake.imageUrl}></img>
-        <h2>{cake.name}</h2>
-        <h2>{cake.comment}</h2>
+        <img alt="Picture of a cake!" src={cake.imageUrl}></img>
+        <div className="cake-details">
+          <h2>{cake.name}</h2>
+          <h2>{cake.comment}</h2>
+          <h2>Yum rating: {cake.yumFactor}</h2>
+
+        </div>
       </div>
     });
+
 
     return(
       <div id="main">
         <Add />
-      <div id="cake-list">{cakes}</div>
-    </div>
+        <div id="cake-list">{cakes}</div>
+      </div>
     )
   }
 }

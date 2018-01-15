@@ -1,3 +1,7 @@
+h2 {
+  margin-left: 15px;
+}
+
 img {
   width: 60%;
   height: 60%;
@@ -28,4 +32,18 @@ img {
         bottom: 5%;
         top: auto;
     }
+    img {
+      width: 40%;
+      height: 40%;
+    }
+}
+
+.cake {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.cake-details {
+  display: flex;
+  flex-direction: column;
 }
