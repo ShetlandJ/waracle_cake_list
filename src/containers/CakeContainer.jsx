@@ -1,5 +1,7 @@
 import React from 'react';
 import Add from "./Add";
+import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 class CakeContainer extends React.Component {
 
@@ -7,7 +9,8 @@ class CakeContainer extends React.Component {
     super(props);
     this.state = {
       cakes_data: []
-    }
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
@@ -19,31 +22,26 @@ class CakeContainer extends React.Component {
         const jsonString = request.responseText;
         const data = JSON.parse(jsonString);
         this.setState({ cakes_data: data })
-        };
-      });
-    request.send();
-  }
-
-
-  render() {
-    return(
-      <div>{this.state.cakes_data.children}</div>
       };
     });
     request.send();
   }
 
-  render() {
+  handleClick() {
+    var cakeLink = "/add";
+    return <Redirect to={cakeLink} />
+  }
 
+  render() {
 
     const cakes = this.state.cakes_data.map((cake, index) => {
       return <div className="cake">
         <img alt="Picture of a cake!" src={cake.imageUrl}></img>
         <div className="cake-details">
-          <h2>{cake.name}</h2>
-          <h2>{cake.comment}</h2>
-          <h2>Yum rating: {cake.yumFactor}</h2>
 
+          <h2 onClick={this.handleClick}>{cake.name}</h2>
+          <p>{cake.comment}</p>
+          <p>Yum rating: {cake.yumFactor}</p>
         </div>
       </div>
     });
